@@ -1,12 +1,11 @@
 require 'faker'
 
-puts 'Creating 100 fake restaurants...'
-100.times do
-  restaurant = {
-    name:    Faker::Company.name,
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    rating:  rand(0..5)
-  }
-  # restaurant.save!
+puts "Creating fake Restaurants to test it out"
+100.times do |i|
+  Restaurant.create!(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_address,
+    rating: rand(0..5)
+  )
 end
-puts 'Finished!'
+puts "Restaurants created!"
